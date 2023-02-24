@@ -1,0 +1,48 @@
+
+.res-text {
+    width: 80%;
+    text-align: center;
+    color: gray;
+    font-weight: 500;
+    font-size: 16px;
+    margin: 10px 0px;
+}
+
+.login-with-fb-register {
+    text-decoration: none;
+    padding: 5px 0px;
+    text-align: center;
+    width: 80%;
+    background-color: #299EF7;
+    color: #fff;
+    border-radius: 4px;
+    margin-bottom: 10px;
+
+    &:hover {
+        color: #fff;
+    }
+
+}
+
+.res-info {
+     width: 80%;
+     margin: auto;
+
+
+    .res-from-text {
+        font-size: 13px; 
+        font-weight: 300; 
+        width: 100%;
+        text-align: center;
+        color: gray;  
+        
+        a {
+            text-decoration: none;
+            color: gray;
+            font-weight: 500;
+        }
+    
+} 
+}
+
+
