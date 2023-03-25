@@ -1,10 +1,39 @@
-import React from "react";
+import React, { useState } from "react";
 import { GrFacebook } from "react-icons/gr";
-import { Link } from "react-router-dom";
-import Footer from "../Footer/Footer";
+import { useDispatch } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
+import Footer from "../../components/Footer/Footer";
+import { loginUser } from "../Signup/signupAPI";
 import "./Login.scss";
 
 const Login = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const [input, setInput] = useState({
+    auth: "",
+    password: "",
+  });
+
+  const handleChange = (e) => {
+    setInput((prev) => ({
+      ...prev,
+      [e.target.name]: e.target.value,
+    }));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    dispatch(
+      loginUser(
+        {
+          auth: input.auth,
+          password: input.password,
+        },
+        navigate("/")
+      )
+    );
+  };
+
   return (
     <div className="login-container">
       <div className="login-wraper">
@@ -17,9 +46,11 @@ const Login = () => {
           />
         </a>
 
-        <form className="login-form">
+        <form className="login-form" onSubmit={handleSubmit}>
           <input
             name="auth"
+            value={input.auth}
+            onChange={handleChange}
             type="text"
             className="login-input"
             placeholder="phone number, username or email"
@@ -27,10 +58,14 @@ const Login = () => {
           <input
             name="password"
             type="text"
+            value={input.password}
+            onChange={handleChange}
             className="login-input"
             placeholder="password"
           />
-          <button className="login-submit">Log IN</button>
+          <button type="submit" className="login-submit">
+            Log IN
+          </button>
         </form>
 
         <div className="divider">OR</div>
@@ -39,14 +74,14 @@ const Login = () => {
           {" "}
           <GrFacebook /> Login with Facebook
         </a>
-        <Link className="forgot-password" to="/forgot-password">
+        <Link className="forgot-password" to="/account-password-reset">
           Forgot Password?
         </Link>
       </div>
       <div className="singup-wraper">
         <span className="singup-text">
           Don't have an account?
-          <Link to="/accounts/emailsignup" className="singup-link">
+          <Link to="/signup" className="singup-link">
             {" "}
             Sign up
           </Link>

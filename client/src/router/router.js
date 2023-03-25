@@ -1,11 +1,13 @@
 import { createBrowserRouter } from "react-router-dom";
+import ChangePassword from "../components/ChangePassword/ChangePassword";
 import Footer from "../components/Footer/Footer";
-import Login from "../components/Login/Login";
-import Signup from "../components/Signup/Signup";
+import PasswordReset from "../components/PasswordReset/PasswordReset";
 import UserHome from "../components/UserHome/UserHome";
-import Activation from "../page/Auth/Activation/Activation";
-import Home from "../page/Home/Home";
-import Profile from "../page/Profile/Profile";
+import Activation from "../features/Activation/Activation";
+import Home from "../features/Home/Home";
+import Login from "../features/Login/Login";
+import Profile from "../features/Profile/Profile";
+import Signup from "../features/Signup/Signup";
 
 export const router = createBrowserRouter([
   {
@@ -23,19 +25,27 @@ export const router = createBrowserRouter([
     ],
   },
   {
-    path: "/accounts/login",
+    path: "/login",
     element: <Login />,
   },
   {
-    path: "/accounts/emailsignup",
+    path: "/signup",
     element: <Signup />,
+  },
+  {
+    path: "/activation/account",
+    element: <Activation />,
+  },
+  {
+    path: "/account-password-reset",
+    element: <PasswordReset />,
+  },
+  {
+    path: "/account-password-change",
+    element: <ChangePassword />,
   },
   {
     path: "/footer",
     element: <Footer />,
-  },
-  {
-    path: "/activation",
-    element: <Activation />,
   },
 ]);

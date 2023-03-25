@@ -1,8 +1,7 @@
 import React from "react";
 import "./Home.scss";
-import HomeHeader from "../../components/HomeHeader/HomeHeader";
-
 import { Outlet } from "react-router-dom";
+import HomeHeader from "../../components/HomeHeader/HomeHeader";
 
 const Home = () => {
   return (
